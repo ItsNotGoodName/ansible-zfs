@@ -81,14 +81,6 @@
         zfs_enable_nfs is defined and
         zfs_enable_nfs
 
-- name: debian | un-installing NFS (if not enabled)
-  apt:
-    name: nfs-kernel-server
-    state: absent
-  when: >
-        zfs_enable_nfs is defined and
-        not zfs_enable_nfs
-
 - name: debian | configuring NFS Kernel Server
   template:
     src: etc/exports.j2
